@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# load-terminal.sh
+#
+# Author: Mariusz Jozala <mariusz@aetas.pl>
+# Date  : Apr 12, 2013
+#
+# Description: 
+#    Very simple script for saving the terminal session for Gnome Terminal.
+#    It saves terminal session file to the specified TERMINAL_SESSION_DIR directory.
+#    It can be used to save multiple tabs of the Gnome Terminal which cane be then
+#    restored after system reboot.
+#    It is meant to be used together with load-terminal script.
+#
+# Usage : ./save-terminal
+#
+#    This script is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    The MIT License for more details.
+#
+#####################################################
+
+TERMINAL_SESSIONS_DIR=~/.terminal-sessions
+
+gnome-terminal --save-config=$TERMINAL_SESSIONS_DIR/$(date +"%m%d%Y-%H%M%S")

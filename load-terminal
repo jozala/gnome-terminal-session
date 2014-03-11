@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# load-terminal.sh
+#
+# Author: Mariusz Jozala <mariusz@aetas.pl>
+# Date  : Apr 12, 2013
+#
+# Description: 
+#    Very simple script for loading the terminal session for Gnome Terminal.
+#    It always choose the latest saved terminal session file from the specified
+#    TERMINAL_SESSION_DIR directory.
+#    It can be used to restore multiple tabs in the Gnome Terminal after system
+#    reboot.
+#
+# Usage : ./load-terminal
+#
+#    This script is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    The MIT License for more details.
+#
+#####################################################
+
+TERMINAL_SESSIONS_DIR=~/.terminal-sessions
+NEWEST_FILENAME=$(ls -t $TERMINAL_SESSIONS_DIR | head -1)
+echo $NEWEST_FILENAME
+gnome-terminal --load-config=$TERMINAL_SESSIONS_DIR/$NEWEST_FILENAME
